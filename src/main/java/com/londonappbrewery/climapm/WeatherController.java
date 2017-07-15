@@ -89,11 +89,17 @@ public class WeatherController extends AppCompatActivity {
 
         Intent myIntent = getIntent();
         String city = myIntent.getStringExtra("City");
+        String country = myIntent.getStringExtra("Country");
 
-        if(city != null){
-            mCityLabel.setText(city);
-            getWeatherForNewCity(city);
+
+        if (city != null && country != null) {
+            String toPrint = city + ",  " + country;
+            Log.d("Clima", toPrint);
+            mCityLabel.setText(country);
+            getWeatherForNewCity(city + "," + country);
         }
+
+
         else{
             Log.d("Clima", "Getting weather for current location");
 
@@ -113,6 +119,7 @@ public class WeatherController extends AppCompatActivity {
 
 
     private void getWeatherForNewCity(String city){
+        Log.d("Clima", "Real check for city " + city);
         RequestParams params = new RequestParams();
         params.put("q", city);
         params.put("appid", APP_ID);
@@ -225,7 +232,7 @@ public class WeatherController extends AppCompatActivity {
 
     private void updateUI(WeatherDataModel weather){
         mTemperatureLabel.setText(weather.getTemperature());
-        mCityLabel.setText(weather.getCity());
+        mCityLabel.setText(weather.getCity() + ", " + weather.getmCountry());
 
         int resourceID = getResources().getIdentifier(weather.getIconName(), "drawable", getPackageName());
 

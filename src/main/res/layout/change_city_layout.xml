@@ -37,6 +37,21 @@
         android:imeOptions="actionGo"
         android:gravity="center_vertical|center_horizontal"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/queryET"
+
+        android:hint="Enter Country"
+        android:background="@color/white"
+        android:textSize="30sp"
+        android:inputType="textAutoCorrect"
+        android:id="@+id/queryCountry"
+        android:textColor="@color/black"
+        android:imeOptions="actionGo"
+        android:gravity="center_vertical|center_horizontal"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
